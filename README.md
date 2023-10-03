@@ -1,6 +1,11 @@
 # Dokumentasi Board NRF52840 V1.0723
+
+
 ﷽
+
 Semoga sehat selalu untuk kita semua.
+
+
 
 # Flash bootloader NRF52840
 
@@ -22,7 +27,7 @@ File bootloader bisa apa menggunakan apa saja, sebagai contoh saya menggunakan b
 
 1. Install semua peralatan tempurnya. Pastikan sudah **OK** ya...
 2. Hubungkan board `NRF52840` dengan `ST-Link V.2` via SWD.
-	> */3V3/*
+	> */3V3*
 	> */GND*
 	> */SWCLK*
 	> */SWDIO/*
