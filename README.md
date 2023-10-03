@@ -4,7 +4,11 @@
 ﷽
 
 Semoga sehat selalu untuk kita semua.
-
+.
+.
+.
+.
+.
 
 
 # Flash bootloader NRF52840
