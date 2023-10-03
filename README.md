@@ -22,10 +22,10 @@ File bootloader bisa apa menggunakan apa saja, sebagai contoh saya menggunakan b
 
 1. Install semua peralatan tempurnya. Pastikan sudah **OK** ya...
 2. Hubungkan board `NRF52840` dengan `ST-Link V.2` via SWD.
-	> *3V3*
-	> *GND*
-	> *SWCLK*
-	> *SWDIO*
+	> */3V3/*
+	> */GND/*
+	> */SWCLK/*
+	> */SWDIO/*
 3. Buka Terminal:
     - Cek versi `openocd`,
        >*> openocd -v*
@@ -40,7 +40,7 @@ File bootloader bisa apa menggunakan apa saja, sebagai contoh saya menggunakan b
     - `Flash NRF52840`
        > *> program /your/path/to/the/pca10056_bootloader-0.6.2_s140_6.1.1.hex verify*
     - Resume the execution,
-       > *resume*
+       > *> resume*
        
 4. Jika berhasil maka pada `Device Manager`, board akan terbaca sebagai *`USB Serial Device(COM...)`*
 5. Untuk masuk ke mode `DFU` tekan 2 kali tombol `reset`.
