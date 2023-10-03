@@ -1,0 +1,13 @@
+> Bluefruit 52 HW Info
+ 
+> MAC Address: E3:32:7:18:24:33
+> Device ID  : A3299C384744D933
+> MCU Variant: nRF52840 0x41414430
+> Memory     : Flash = 1024 KB, RAM = 256 KB
+
+> led P0.11 > 11
+> btn P1.10 > 42
+
+> swrf P1.06 > 38 
+> txen P1.05 > 37
+> rxen P1.04 > 36
