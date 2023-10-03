@@ -15,7 +15,7 @@ Semoga sehat selalu untuk kita semua.
 
 Bootloader diperlukan karena SOC **NRF52840** dari JLC masih kosong, jadi  fitur-fitur yang ada seperti DFU USB tidak dapat terbaca di PC.
 
-File bootloader bisa apa menggunakan apa saja, sebagai contoh saya menggunakan bootloader **NRF52840 DK** (PCA10056), kemudian semua config pinout mengikuti board tersebut.
+File bootloader bisa apa menggunakan saja, sebagai contoh saya menggunakan bootloader **NRF52840 DK** (PCA10056), kemudian semua config pinout mengikuti board tersebut.
  
 
 ## Peralatan Tempur
@@ -27,7 +27,7 @@ File bootloader bisa apa menggunakan apa saja, sebagai contoh saya menggunakan b
 - Kabel USB type C
 
 
-## Langkah - Langkah
+## Langkah-Langkah
 
 1. Install semua peralatan tempurnya. Pastikan sudah **OK** ya...
 2. Hubungkan board `NRF52840` dengan `ST-Link V.2` via SWD.
