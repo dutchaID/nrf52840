@@ -46,7 +46,7 @@ File bootloader bisa apa menggunakan apa saja, sebagai contoh saya menggunakan b
        > *> halt*
     - Hapus `flash` memory,
        > *> nrf5 mass_erase*
-    - `Flash NRF52840`
+    - `Flash NRF52840`,
        > *> program /your/path/to/the/pca10056_bootloader-0.6.2_s140_6.1.1.hex verify*
     - Resume the execution,
        > *> resume*
@@ -59,13 +59,13 @@ File bootloader bisa apa menggunakan apa saja, sebagai contoh saya menggunakan b
 1. Buka Arduino IDE, lalu pilih tab `File` dan pilih `Preferences` dan masukkan URL berikut:
     >*https://adafruit.github.io/arduino-board-index/package_adafruit_index.json*
 2. Restart Arduino IDE.
-3. Pilih `Tools` > `Board` > `Board Manager`. Kemudian pada textbox filter pencarian filter dengan `NRF` dan install `Arduino nRF52 Boars` dan `Adafruit nRF52`
+3. Pilih `Tools` > `Board` > `Board Manager`. Kemudian pada textbox filter pencarian filter dengan `NRF` dan install `Arduino nRF52 Boars` dan `Adafruit nRF52`.
 4. Setelah selesai, silahkan digasken ngodingnya... (saya mencoba dengan program template `bleuart`).....
 
 ## Config Pin Board NRF52840
 
-- On board LED `P0.11`, active `LOW`
-- On board button `P1.10`, active `LOW`
+- On board LED `P0.11`, active `LOW`.
+- On board button `P1.10`, active `LOW`.
 - Switch RF PE4259 `P1.06`, active `HIGH`, lebih detail lihat datasheet.
 - Front end RF RFX2401C, RX Enable `P1.04` dan TX Enable `P1.05`, lebih detail lihat datasheet.
 
