@@ -1,85 +1,54 @@
-# Welcome to StackEdit!
+# Dokumentasi Board NRF52840 V1.0723
+﷽
+Semoga sehat selalu untuk kita semua.
 
-Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
+# Flash bootloader NRF52840
 
+Bootloader diperlukan karena SOC **NRF52840** dari JLC masih kosong, jadi  fitur-fitur yang ada seperti DFU USB tidak dapat terbaca di PC.
 
-# Files
+File bootloader bisa apa menggunakan apa saja, sebagai contoh saya menggunakan bootloader **NRF52840 DK** (PCA10056), kemudian semua config pinout mengikuti board tersebut.
+ 
 
-StackEdit stores your files in your browser, which means all your files are automatically saved locally and are accessible **offline!**
+## Peralatan Tempur
 
-## Create files and folders
-
-The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
-
-## Switch to another file
-
-All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.
-
-## Rename a file
-
-You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
-
-## Delete a file
-
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
-
-## Export a file
-
-You can export the current file by clicking **Export to disk** in the menu. You can choose to export the file as plain Markdown, as HTML using a Handlebars template or as a PDF.
+- OpenOCD, [gas di sini](https://openocd.org/).
+- ST-link V.2
+- File bootloader PCA10056
+- Arduino IDE, [gas di sini](https://www.arduino.cc/en/software).
+- Kabel USB type C
 
 
-# Synchronization
+## Langkah - Langkah
 
-Synchronization is one of the biggest features of StackEdit. It enables you to synchronize any file in your workspace with other files stored in your **Google Drive**, your **Dropbox** and your **GitHub** accounts. This allows you to keep writing on other devices, collaborate with people you share the file with, integrate easily into your workflow... The synchronization mechanism takes place every minute in the background, downloading, merging, and uploading file modifications.
+1. Install semua peralatan tempurnya. Pastikan sudah **OK** ya...
+2. Hubungkan board `NRF52840` dengan `ST-Link V.2` via SWD.
+	> *3V3*
+	> *GND*
+	> *SWCLK*
+	> *SWDIO*
+3. Buka Terminal:
+    - Cek versi `openocd`,
+       >*> openocd -v*
+    - Run `openocd`, direktori nya disesuaikan ya...
+       >*> openocd -f share/openocd/scripts/interface/stlink.cfg -f share/openocd/scripts/target/nrf52.cfg*
+    - `Openocd` sekarang sudah running. Sekarang kita buka terminal lagi untuk menggunakan `telnet`.
+       >*> telnet localhost 4444*
+    - `Stop execution` bisa gunakan, 
+       > *> halt*
+    - Hapus `flash` memory,
+       > *> nrf5 mass_erase*
+    - `Flash NRF52840`
+       > *> program /your/path/to/the/pca10056_bootloader-0.6.2_s140_6.1.1.hex verify*
+    - Resume the execution,
+       > *resume*
+       
+4. Jika berhasil maka pada `Device Manager`, board akan terbaca sebagai *`USB Serial Device(COM...)`*
+5. Untuk masuk ke mode `DFU` tekan 2 kali tombol `reset`.
+ 
 
-There are two types of synchronization and they can complement each other:
-
-- The workspace synchronization will sync all your files, folders and settings automatically. This will allow you to fetch your workspace on any other device.
-	> To start syncing your workspace, just sign in with Google in the menu.
-
-- The file synchronization will keep one file of the workspace synced with one or multiple files in **Google Drive**, **Dropbox** or **GitHub**.
-	> Before starting to sync files, you must link an account in the **Synchronize** sub-menu.
-
-## Open a file
-
-You can open a file from **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Open from**. Once opened in the workspace, any modification in the file will be automatically synced.
-
-## Save a file
-
-You can save any file of the workspace to **Google Drive**, **Dropbox** or **GitHub** by opening the **Synchronize** sub-menu and clicking **Save on**. Even if a file in the workspace is already synced, you can save it to another location. StackEdit can sync one file with multiple locations and accounts.
-
-## Synchronize a file
-
-Once your file is linked to a synchronized location, StackEdit will periodically synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be resolved.
-
-If you just have modified your file and you want to force syncing, click the **Synchronize now** button in the navigation bar.
-
-> **Note:** The **Synchronize now** button is disabled if you have no file to synchronize.
-
-## Manage file synchronization
-
-Since one file can be synced with multiple locations, you can list and manage synchronized locations by clicking **File synchronization** in the **Synchronize** sub-menu. This allows you to list and remove synchronized locations that are linked to your file.
-
-
-# Publication
-
-Publishing in StackEdit makes it simple for you to publish online your files. Once you're happy with a file, you can publish it to different hosting platforms like **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **WordPress** and **Zendesk**. With [Handlebars templates](http://handlebarsjs.com/), you have full control over what you export.
-
-> Before starting to publish, you must link an account in the **Publish** sub-menu.
-
-## Publish a File
-
-You can publish your file by opening the **Publish** sub-menu and by clicking **Publish to**. For some locations, you can choose between the following formats:
-
-- Markdown: publish the Markdown text on a website that can interpret it (**GitHub** for instance),
-- HTML: publish the file converted to HTML via a Handlebars template (on a blog for example).
-
-## Update a publication
-
-After publishing, StackEdit keeps your file linked to that publication which makes it easy for you to re-publish it. Once you have modified your file and you want to update your publication, click on the **Publish now** button in the navigation bar.
-
-> **Note:** The **Publish now** button is disabled if your file has not been published yet.
-
-## Manage file publication
-
-Since one file can be published to multiple locations, you can list and manage publish locations by clicking **File publication** in the **Publish** sub-menu. This allows you to list and remove publication locations that are linked to your file.
+## Pemrograman NRF52840 menggunakan Arduino IDE
+1. Buka Arduino IDE, lalu pilih tab `File` dan pilih `Preferences` dan masukkan URL berikut:
+    >*https://adafruit.github.io/arduino-board-index/package_adafruit_index.json*
+2. Restart Arduino IDE.
+3. Pilih `Tools` > `Board` > `Board Manager`. Kemudian pada textbox filter pencarian filter dengan `NRF` dan install `Arduino nRF52 Boars` dan `Adafruit nRF52`
+4. Setelah selesai, silahkan digasken ngodingnya... (saya mencoba dengan program template `bleuart`).....
