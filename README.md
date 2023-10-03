@@ -61,3 +61,11 @@ File bootloader bisa apa menggunakan apa saja, sebagai contoh saya menggunakan b
 2. Restart Arduino IDE.
 3. Pilih `Tools` > `Board` > `Board Manager`. Kemudian pada textbox filter pencarian filter dengan `NRF` dan install `Arduino nRF52 Boars` dan `Adafruit nRF52`
 4. Setelah selesai, silahkan digasken ngodingnya... (saya mencoba dengan program template `bleuart`).....
+
+## Config Pin Board NRF52840
+
+- On board LED `P0.11`, active `LOW`
+- On board button `P1.10`, active `LOW`
+- Switch RF PE4259 `P1.06`, active `HIGH`, lebih detail lihat datasheet.
+- Front end RF RFX2401C, RX Enable `P1.04` dan TX Enable `P1.05`, lebih detail lihat datasheet.
+
