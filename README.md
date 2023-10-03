@@ -15,7 +15,7 @@ Semoga sehat selalu untuk kita semua.
 
 Bootloader diperlukan karena SOC **NRF52840** dari JLC masih kosong, jadi  fitur-fitur yang ada seperti DFU USB tidak dapat terbaca di PC.
 
-File bootloader bisa apa menggunakan saja, sebagai contoh saya menggunakan bootloader **NRF52840 DK** (PCA10056), kemudian semua config pinout mengikuti board tersebut.
+File bootloader bisa menggunakan apa saja, sebagai contoh saya menggunakan bootloader **NRF52840 DK** (PCA10056), kemudian semua config pinout mengikuti board tersebut.
  
 
 ## Peralatan Tempur
